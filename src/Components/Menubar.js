@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/Menubar.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //Material UI imports
 import Button from "@mui/material/Button";
@@ -47,13 +47,13 @@ function MenuBar() {
             navigate("/");
           }}>
         <img
-          
+          alt="Incharge"
           src="/logos/logo-color-transparent.png"
         />
       </div>
       <div className="menu-items">
         {menuItems
-          .filter((item) => item.show == true)
+          .filter((item) => item.show === true)
           .map((item) => (
             <Button key={item.name} className={item.style} href={item.navLink}>
               {item.name}

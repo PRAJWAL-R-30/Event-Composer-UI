@@ -15,16 +15,11 @@ import {
 } from "../Utils/utils";
 
 import Button from "@mui/material/Button";
-import FormControl from "@mui/material/FormControl";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import { CopyAllSharp } from "@mui/icons-material";
 
 function EventDetails(props) {
   const { id } = useParams();
 
-  const [myEvents, setMyEvents] = useState(MyEventsData.myEvents);
+  const [myEvents] = useState(MyEventsData.myEvents);
   const [selectedSubEvent, setSelectedSubEvent] = useState(0);
 
   const getEventDetails = (id) => {
