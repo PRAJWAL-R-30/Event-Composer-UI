@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../Pages/css/Login.css";
 import TextField from "@mui/material/TextField";
 import { textFieldStyle } from "../Utils/utils";
@@ -17,7 +17,6 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
-  const [formValid, setFormValid] = useState(false);
   const [inputValid, setInputValid] = useState({
     firstName: {
       error: false,

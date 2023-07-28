@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 function Home() {
   return (
     <div className="homePage">
-      <img src="/illustrations/eventplan-illustration.png" />
+      <img src="/illustrations/eventplan-illustration.png" alt="Event Composer" />
       <div className="text-container">
         <p className="big-font">Hi there!</p>
         <p className="medium-font">

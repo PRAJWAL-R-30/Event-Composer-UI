@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import "./css/NewEventForm.css"
 import SubEventForm from "./SubEventForm";
 import { convertToRupeesFormat, 
@@ -18,6 +18,14 @@ import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 function DetailsForm(props) {
 
+  const sumOfSubBudgets = useCallback(() => {
+    let sum = 0;
+    props.subEvents.forEach((subEvent) => {
+      sum += parseInt(subEvent.estimatedBudget);
+    });
+    return sum;
+  },[props]);
+
   useEffect(() => {
     if (parseInt(sumOfSubBudgets()) > parseInt(props.totalBudget)) {
       props.setBudgetExceed(true);
@@ -25,7 +33,7 @@ function DetailsForm(props) {
     else {
       props.setBudgetExceed(false);
     }
-  },[props.subEvents, props.totalBudget])
+  },[props, sumOfSubBudgets]);
 
   const onAddEvent = () => {
     const newEventObj = {
@@ -35,13 +43,7 @@ function DetailsForm(props) {
     props.setSubEvents((prevItems) => [...prevItems, newEventObj]);
   };
 
-  const sumOfSubBudgets = () => {
-    let sum = 0;
-    props.subEvents.forEach((subEvent) => {
-      sum += parseInt(subEvent.estimatedBudget);
-    });
-    return sum;
-  };
+  
 
   const onSubEventChange = (index, target, value) => {
     const subEvents = [...props.subEvents];
