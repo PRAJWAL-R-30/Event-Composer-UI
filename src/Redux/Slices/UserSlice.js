@@ -11,7 +11,7 @@ export const userRegister = createAsyncThunk(
     'user/register',
     async(user) => {
         try {
-            const response = await axios.post('http://localhost:3001/users/register', user);
+            const response = await axios.post('https://event-composer-be.onrender.com/users/register', user);
             return response.data; 
         } catch (error) {
             console.log(error);
@@ -30,7 +30,7 @@ export const userLogin = createAsyncThunk(
     'user/login',
     async(credentials) => {
         try {
-            const response = await axios.post('http://localhost:3001/users/login', credentials);
+            const response = await axios.post('https://event-composer-be.onrender.com/users/login', credentials);
             return response.data;
         } catch(error) {
             if (error.response) {

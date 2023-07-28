@@ -9,7 +9,7 @@ const initialState = {
 export const fetchEvents = createAsyncThunk(
     'events/getEvents', 
     async () => {
-        const response = await axios.get('http://localhost:3001/events');
+        const response = await axios.get('https://event-composer-be.onrender.com/events');
         console.log(response.data);
         return response.data;
     }
@@ -18,7 +18,7 @@ export const fetchEvents = createAsyncThunk(
 export const addNewEvent = createAsyncThunk(
     'events/addNewEvent',
     async (event) => {
-        const response = await axios.post('http://localhost:3001/events/AddEvent', event);
+        const response = await axios.post('https://event-composer-be.onrender.com/events/AddEvent', event);
         return response.data;
     }
 )
