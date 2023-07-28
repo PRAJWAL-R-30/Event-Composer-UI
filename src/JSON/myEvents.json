@@ -1,0 +1,64 @@
+{
+  "myEvents": [
+    {
+      "id": 1,
+      "eventName": "Wedding",
+      "eventType": "Religious events",
+      "eventDesc": "Wedding of Mohan Poojary and Nishmitha Poojary",
+      "eventDate": "2023-03-03T12:00:00.000Z",
+      "eventVenue": "Paakashala Party Hall",
+      "isMultiEvent": true,
+      "totalBudget": 100000,
+      "subEvents": [
+        {
+          "subEventName": "Engagement",
+          "subEventDate": "2023-03-03T12:00:00.000Z",
+          "subEventVenue": "Paakashala Party Hall",
+          "estimatedBudget": 150000,
+          "expenditures": []
+        },
+        {
+          "subEventName": "Haldi",
+          "subEventDate": "2023-04-03T18:00:00.000Z",
+          "subEventVenue": "Paakashala Party Hall",
+          "estimatedBudget": 30000,
+          "expenditures": []
+        },
+        {
+          "subEventName": "Muhoort",
+          "subEventDate": "2023-05-03T11:30:00.000Z",
+          "subEventVenue": "Paakashala Party Hall",
+          "estimatedBudget": 550000,
+          "expenditures": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "eventName": "Seminar",
+      "eventType": "Religious events",
+      "eventDesc": "Wedding of Mohan Poojary and Nishmitha Poojary",
+      "eventDate": "2023-03-03T12:00:00.000Z",
+      "eventVenue": "Paakashala Party Hall",
+      "isMultiEvent": false,
+      "totalBudget": 100000,
+      "expenditures": [
+        {
+          "description": "Venue Rent",
+          "amount": 60000,
+          "remarks": "AC hall, Extra Ac prt hr - 5000/-"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "eventName": "Utsav",
+      "eventType": "Religious events",
+      "eventDesc": "Wedding of Mohan Poojary and Nishmitha Poojary",
+      "eventDate": "2023-03-03T12:00:00.000Z",
+      "eventVenue": "Paakashala Party Hall",
+      "isMultiEvent": false,
+      "totalBudget": 100000
+    }
+  ]
+}

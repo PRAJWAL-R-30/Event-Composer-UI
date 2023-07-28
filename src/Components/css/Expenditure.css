@@ -1,0 +1,20 @@
+.Expenditure {
+    width: 100%;
+}
+
+.Expenditure > p {
+    font-size: 30px;
+    color: #E6B17E;
+}
+
+.Expenditure-container {
+    min-height: 60px;
+    border: 1px solid #E6B17E;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.note-paragraph {
+    font-size: 16px;
+    color: #C56E33;
+}

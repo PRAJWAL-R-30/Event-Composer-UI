@@ -1,0 +1,95 @@
+.event-details-page {
+    margin-top: 100px;
+    height: 200%;
+    padding: 0 60px;
+    overflow: scroll;
+    z-index: 1;
+}
+
+.event-detail-title {
+    color: #E6B17E;
+}
+
+.event-details-top-block {
+    position: relative;
+    border: 1px solid #E6B17E;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.label-value {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.label-value > .label {
+    color: #C56E33;
+}
+
+.label-value > .value {
+    color: #E6B17E;
+    margin: 0 0 0 10px;
+    font-size: 24px;
+}
+
+.Edit-button {
+    position: absolute;
+    right: 60px;
+    top: 100px;
+}
+
+.budgetInput {
+    margin: 20px 0;
+}
+
+.subEvents-horizontal {
+    display: flex;
+    gap: 30px;
+}
+
+.subEvent-card {
+    height: 260px;
+    width: 200px;
+    border: 1px solid #E6B17E; 
+    border-radius: 10px; 
+}
+
+.subEvent-card:hover {
+    background-color: #e6b07e3e !important;
+}
+
+.card-selected {
+    background-color: #e6b07e3e !important;
+}
+
+.card-header {
+    width: 100%;
+}
+
+.card-header > p {
+    font-size: 24px;
+    color: #E6B17E;
+    text-align: center;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.body-item {
+    height: 40px;
+    width: 160px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.body-item > p {
+    color: #E6B17E;
+}
+

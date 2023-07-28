@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+.NewEvent {
+    color: white;
+    position: relative;
+    margin-top: 100px;
+    padding: 0 60px;
+    height: 100%;
+    overflow: scroll;
+}
+
+.newEvent-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #E6B17E;
+    font-size: 32px;
+}
+
+/* Overriding inbuilt mui css */
+.css-d9c359-MuiButtonBase-root-MuiToggleButton-root.Mui-selected {
+    background-color: #E6B17E !important;
+    color: #C56E33 !important;
+    font-weight: bold;
+}

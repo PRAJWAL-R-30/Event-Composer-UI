@@ -1,0 +1,36 @@
+.menubar {
+    position: fixed;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 60px;
+    z-index: 1;
+    right: 0;
+    left: 0;
+}
+
+.header-logo {
+    z-index: 1;
+}
+
+.header-logo > img {
+    height: 50px;
+}
+
+.menu-items {
+    display: flex;
+    gap: 20px;
+}
+
+
+.text {
+    color: #E6B17E !important;
+}
+
+.contained {
+    color: #C56E33 !important;
+    background-color: #E6B17E !important;
+    font-weight: bold !important;
+}
+

@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+.NewEventForm {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    color: #C56E33;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 20px 0;
+}
+
+.display-flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px 0;
+    gap: 30px;
+}
+
+.text-field {
+    width: 300px;
+}
+
+.text-field input {
+    color: #E6B17E !important;
+}
+
+.text-field label,
+svg {
+    color: #C56E33;
+}
+
+.text-field svg {
+    color: #E6B17E;
+}
+
+.text-field p {
+    color: #E6B17E;
+}
+
+.text-field:hover label {
+    color: #C56E33;
+}
+
+.text-field:hover svg {
+    color: #C56E33;
+}
+
+.switch-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.switch-button button {
+    border-color: #E6B17E !important;
+    color: #E6B17E !important;
+    width: 150px;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.NavButton {
+    width: 80px;
+    height: 45px;
+    color: #C56E33 !important;
+    background-color: #E6B17E !important;
+    font-weight: bold !important;
+}
+
+.Nav-btn-group {
+    align-self: center;
+    width: 200px;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+}
+
+.form-box {
+    --b: 3px;
+    /* border width */
+    --c: 3em;
+    /* corner size */
+    --r: 0;
+    /* corner rounding */
+    position: relative;
+    margin: 1em auto;
+    border: solid var(--b) transparent;
+    padding: 1em;
+    max-width: 23em;
+    font: 1.25em ubuntu, sans-serif;
+}
+
+.form-box::before {
+    --b: 10px;
+    position: absolute;
+    inset: calc(-1 * var(--b));
+    border: inherit;
+    border-radius: var(--r);
+    background: linear-gradient(#c56e33, #e6b17e) border-box;
+    --corner: conic-gradient(from -90deg at var(--c) var(--c), red 25%, #0000 0) 0 0 / calc(100% - var(--c)) calc(100% - var(--c)) border-box;
+    --inner: conic-gradient(red 0 0) padding-box;
+    -webkit-mask: var(--corner), var(--inner);
+    -webkit-mask-composite: source-out;
+    content: "";
+}
+
+.MuiOutlinedInput-input {
+    color: #E6B17E !important;
+}
+
+.display-flex-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
+}
+
+.display-flex-space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.single-event-form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.MuiClockPointer-root,
+.MuiClock-pin,
+.MuiClockPointer-thumb,
+.css-kjd0cg-MuiButtonBase-root-MuiIconButton-root-MuiClock-amButton,
+.css-1wahiw3-MuiButtonBase-root-MuiIconButton-root-MuiClock-pmButton {
+    background-color: #E6B17E !important;
+}
+
+.MuiClockPointer-thumb {
+    border-color: #E6B17E !important;
+}
+
+.multi-event-form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-label {
+    color: #E6B17E;
+}
+
+.event-name {
+    margin: 0 10px;
+    color: #E6B17E;
+    font-size: 1.7rem;
+}
+
+.horizontal-line {
+    width: 100%;
+    border: 1px solid #E6B17E;
+}
+
+.add-button {
+    width: 160px;
+    padding: 10px !important;
+    color: #E6B17E !important;
+    background-color: transparent !important;
+    border: 1px solid #E6B17E !important;
+}
+
+.sub-event-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-top: 40px;
+}
+
+.sub-event-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.39);
+    gap: 10px;
+}
+
+.serial-number {
+    color: #E6B17E;
+}
+
+.save-button {
+    background-color: transparent !important;
+    border: 1px solid #E6B17E !important;
+}
+
+.MuiButton-startIcon svg {
+    color: #C56E33;
+}
+
+.MuiCircularProgress-root svg {
+    color: #C56E33;
+}
+
+.delete-icon {
+    cursor: pointer;
+}
+
+.warning-text {
+    color: orange;
+    font-size: 15px;
+    align-items: center;
+}
+
+.warning-icon {
+    color: orange;
+    height: 15px !important;
+    width: auto !important;
+    margin-right: 10px;
+}
+
+.sub-event-form:first-child {
+    border: none !important;
+}
+
+/* .sub-event-form:nth-child(even) {
+    background-color: rgb(255, 255, 255);
+} */

@@ -1,0 +1,55 @@
+.loginPage {
+    margin-top: 100px;
+    height: 200%;
+    padding: 0 60px;
+    overflow: scroll;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginPage-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #E6B17E;
+    font-size: 32px;
+    text-align: center;
+}
+
+.loginPage-box {
+    border: 1px solid #E6B17E;
+    width: 30%;
+}
+
+.Register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 30px;
+}
+
+.submit-button {
+    width: 120px !important;
+    border: 1px solid #E6B17E !important;
+}
+
+.css-a32pmb-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.MuiLoadingButton-loading {
+    color: transparent !important;
+}
+
+.bottom-hyperlink {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #E6B17E;
+    cursor: pointer;
+}
+
+.bottom-hyperlink:hover {
+    text-decoration: underline;
+}
+
+.error-msg {
+    color: red;
+}
