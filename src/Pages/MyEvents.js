@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import LoadingButton from "@mui/lab/LoadingButton";
 import DeleteIcon from '@mui/icons-material/Delete'
 import { deleteAll, fetchEvents } from '../Redux/Slices/EventsSlice';
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function MyEvents() {
 
@@ -54,6 +56,12 @@ function MyEvents() {
   return (
     <div className="my-events">
       <div className="myEvent-title">All Your Events</div>
+      {isLoading ? 
+        <div className="spinner-flex"> 
+          <CircularProgress />
+        </div>
+        : <></>}
+      
       <div className="all-events">
         {events.map((item) => (
           <div key={item._id} 
