@@ -1,10 +1,25 @@
 import React from "react";
 import "./css/Home.css";
+import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 //Material UI imports
 import Button from "@mui/material/Button";
 
 function Home() {
+
+  const { user } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  const navigateToCompose = () => {
+    if (user){
+      navigate('/newEvent');
+    }
+    else {
+      navigate('/login');
+    }
+  };
+
   return (
     <div className="homePage">
       <img src="/illustrations/eventplan-illustration.png" alt="Event Composer" />
@@ -17,7 +32,7 @@ function Home() {
           Expenditure, Decorations, Notes, Reminders … explore more and more.
           Start Planning your first event. Good luck Mr.Incharge.
         </p>
-        <Button variant="contained" className="create-button" href="/NewEvent">
+        <Button variant="contained" className="create-button" onClick={navigateToCompose}>
           Compose Event
         </Button>
       </div>

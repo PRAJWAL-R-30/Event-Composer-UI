@@ -126,7 +126,7 @@ function DetailsForm(props) {
               <span className="event-name">{props.eventName}</span>
             </p>
             {budgetInput("Total Estimated Budget", props.totalBudget, (e) => {
-              props.setTotalBudget(convertToRupeesFormat(e.target.value));
+              props.setTotalBudget(reverseRupeesFormat(e.target.value));
             })}
           </div>
           {props.budgetExceed ? <p className='warning-text'>

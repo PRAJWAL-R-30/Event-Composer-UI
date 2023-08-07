@@ -6,7 +6,20 @@
     z-index: 1;
 }
 
+.myEvent-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.Edit-button {
+    justify-self: right;
+}
+
 .myEvent-title {
+    justify-self: start;
     font-family: 'Roboto Condensed', sans-serif;
     color: #E6B17E;
     font-size: 32px;

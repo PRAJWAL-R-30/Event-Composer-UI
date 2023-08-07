@@ -1,5 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
+//import '../../env.development';
+
+//const baseUrl = process.env.process.env.isLocal ? process.env.localUrl : process.env.serverUrl;
+const baseUrl = process.env.REACT_APP_LOCAL_URL;
+console.log(process.env.LOCAL_URL);
 
 const initialState = {
     events: [],
@@ -8,8 +13,13 @@ const initialState = {
 
 export const fetchEvents = createAsyncThunk(
     'events/getEvents', 
-    async () => {
-        const response = await axios.get('https://event-composer-be.onrender.com/events');
+    async (_, { getState }) => {
+        const {userToken} = getState().user; 
+        const response = await axios.get(baseUrl + '/events', {
+            headers: {
+                Authorization: `Bearer ${userToken}`
+            }
+        });
         console.log(response.data);
         return response.data;
     }
@@ -17,16 +27,21 @@ export const fetchEvents = createAsyncThunk(
 
 export const addNewEvent = createAsyncThunk(
     'events/addNewEvent',
-    async (event) => {
-        const response = await axios.post('https://event-composer-be.onrender.com/events/AddEvent', event);
+    async (event,{ getState }) => {
+        const {userToken} = getState().user;
+        const response = await axios.post(baseUrl + '/events/AddEvent', event, {
+            headers: {
+                Authorization: `Bearer ${userToken}`
+            }
+        });
         return response.data;
     }
-)
+)   
 
 export const deleteAll = createAsyncThunk(
     'events/deleteAll',
     async () => {
-        const response = await axios.delete('http://localhost:3001/events');
+        const response = await axios.delete(baseUrl + '/events');
         return response.data;
     }
 

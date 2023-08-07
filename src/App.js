@@ -1,25 +1,48 @@
-  import './App.css';
-import {Routes, Route} from 'react-router-dom';
+import { useEffect } from 'react';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
 
-import MenuBar from './Components/Menubar';
-import Home from './Pages/Home'
-import NewEvent from './Pages/NewEvent';
-import MyEvents from './Pages/MyEvents';
-import EventDetails from './Pages/EventDetails';
-import Login from './Pages/Login';
+import MenuBar from "./Components/Menubar";
+import Home from "./Pages/Home";
+import NewEvent from "./Pages/NewEvent";
+import MyEvents from "./Pages/MyEvents";
+import EventDetails from "./Pages/EventDetails";
+import Login from "./Pages/Login";
+import { useDispatch, useSelector } from "react-redux";
+import PrivateRoute from "./Components/PrivateRoute";
+import { getUserDetails } from './Redux/Slices/UserSlice'
 
 function App() {
+  const { user, userToken } = useSelector((state) => state.user);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (userToken && !user) {
+      dispatch(getUserDetails());
+    }
+  }, [dispatch, user, userToken]);
+  
   return (
     <div className="App">
-      <MenuBar />
+      <MenuBar user={user} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route exact path="/NewEvent" element={<NewEvent />} />
-        <Route exact path="/MyEvents" element={<MyEvents />} />
-        <Route exact path="/MyEvents/:id" element={<EventDetails />} />
+        <Route exact path="/login" element={<Login />} />
+
+        <Route
+          path="/NewEvent"
+          element={<PrivateRoute element={NewEvent} />}
+        />
+        <Route
+          path="/MyEvents"
+          element={<PrivateRoute element={MyEvents} />}
+        />
+        <Route
+          path="/MyEvents/:id"
+          element={<PrivateRoute element={EventDetails} />}
+        />
       </Routes>
-        
     </div>
   );
 }

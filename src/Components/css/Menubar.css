@@ -28,9 +28,27 @@
     color: #E6B17E !important;
 }
 
+.text:hover {
+    border: 1px solid #E6B17E;
+}
+
+.text:active {
+    border: 1px solid #E6B17E;
+}
+
 .contained {
     color: #C56E33 !important;
     background-color: #E6B17E !important;
     font-weight: bold !important;
+}
+
+.avatar {
+    height: 60px;
+    width: 60px;
+    color: #C56E33 !important;
+    background-color: #E6B17E !important;
+    font-weight: bold !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
 }
 

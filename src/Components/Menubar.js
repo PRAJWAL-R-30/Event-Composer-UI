@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import "./css/Menubar.css";
 import { useNavigate } from "react-router-dom";
 
@@ -6,9 +6,22 @@ import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 
 
-function MenuBar() {
+function MenuBar({user}) {
   const navigate = useNavigate();
-  //const menuItems = ["home", "New Event", "My Events", "LogIn", "SignUp"];
+
+  const getUserInitials = useCallback(() => {
+    if (user){
+      return user.firstName.charAt(0).concat(user.lastName.trim() ? user.lastName.charAt(0): ""); 
+    }
+    return null;
+  }, [user]);
+
+  const [userInitials, setUserInitials] = useState("");
+
+  useEffect(() => {
+    setUserInitials(getUserInitials())
+  }, [user, getUserInitials]);
+
   const menuItems = [
     {
       name: "Home",
@@ -37,10 +50,17 @@ function MenuBar() {
     {
       name: "Login",
       style: "contained",
-      show: true,
+      show: !user,
       navLink: "/Login",
     },
+    {
+      name: userInitials,
+      style: "avatar",
+      show: user,
+      navLink: "",
+    }
   ];
+  
   return (
     <div className="menubar">
       <div className="header-logo" onClick={() => {
@@ -53,9 +73,9 @@ function MenuBar() {
       </div>
       <div className="menu-items">
         {menuItems
-          .filter((item) => item.show === true)
+          .filter((item) => item.show)
           .map((item) => (
-            <Button key={item.name} className={item.style} href={item.navLink}>
+            <Button key={item.name} className={item.style} onClick={() => navigate(item.navLink)}>
               {item.name}
             </Button>
           ))}
