@@ -3,8 +3,7 @@ import axios from 'axios';
 //import '../../env.development';
 
 //const baseUrl = process.env.process.env.isLocal ? process.env.localUrl : process.env.serverUrl;
-const baseUrl = process.env.REACT_APP_IS_LOCAL === true ? process.env.REACT_APP_LOCAL_URL : process.env.REACT_APP_SERVER_URL;
-console.log('baseUrl: ', baseUrl);
+const baseUrl = process.env.REACT_APP_ENV_NAME === "local" ? process.env.REACT_APP_LOCAL_URL : process.env.REACT_APP_SERVER_URL;
 
 const initialState = {
     user: null,
@@ -81,9 +80,10 @@ const userSlice = createSlice({
             state.isLoading = true;
         });
         builder.addCase(userRegister.fulfilled, (state, action) => {
-            state.user = action.payload
+            state.userToken = action.payload.token;
             state.isLoading = false;
             state.errorMsg = null;
+            sessionStorage.setItem('jwt', action.payload.token);
         });
         builder.addCase(userRegister.rejected, (state, action) => {
             state.isLoading = false;
@@ -99,7 +99,7 @@ const userSlice = createSlice({
             state.userToken = action.payload.token;
             state.isLoading = false;
             state.errorMsg = null;
-            sessionStorage.setItem('jwt', action.payload.token)
+            sessionStorage.setItem('jwt', action.payload.token);
         });
         builder.addCase(userLogin.rejected, (state, action) => {
             state.isLoading = false;
