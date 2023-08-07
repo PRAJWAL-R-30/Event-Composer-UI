@@ -3,8 +3,7 @@ import axios from 'axios';
 //import '../../env.development';
 
 //const baseUrl = process.env.process.env.isLocal ? process.env.localUrl : process.env.serverUrl;
-const baseUrl = process.env.REACT_APP_IS_LOCAL === true ? process.env.REACT_APP_LOCAL_URL : process.env.REACT_APP_SERVER_URL;
-console.log('baseUrl: ', baseUrl);
+const baseUrl = process.env.REACT_APP_ENV_NAME === "local" ? process.env.REACT_APP_LOCAL_URL : process.env.REACT_APP_SERVER_URL;
 
 const initialState = {
     events: [],
