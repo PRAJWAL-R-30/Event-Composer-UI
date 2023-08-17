@@ -35,11 +35,11 @@ function App() {
           element={<PrivateRoute element={NewEvent} />}
         />
         <Route
-          path="/MyEvents"
+          path="/MyEvents" exact
           element={<PrivateRoute element={MyEvents} />}
         />
         <Route
-          path="/MyEvents/:id"
+          path="/MyEvents/:id" exact
           element={<PrivateRoute element={EventDetails} />}
         />
       </Routes>

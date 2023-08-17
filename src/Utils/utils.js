@@ -7,6 +7,8 @@ import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 //default styling for text Field
 export const textFieldStyle = {
@@ -24,7 +26,7 @@ export const textFieldStyle = {
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#E6B17E",
+      borderColor: "#E6B17E !important",
     },
     "&:hover fieldset": {
       borderColor: "#C56E33",
@@ -33,6 +35,11 @@ export const textFieldStyle = {
       borderColor: "#C56E33",
     },
   },
+  "& .MuiOutlinedInput-input": {
+    "&.Mui-disabled": {
+      color: "#E6B17E !important"
+    }
+  }
 };
 
 //Method to Convert Integer to Rupee Format (100000 -> 1,00,000)
@@ -57,6 +64,7 @@ export const capitaliseFirstLetter = (text) => {
 };
 
 export const handleTimeChange = (time, date) => {
+  console.log(time);
   const newDate = new Date(date);
   newDate.setHours(time._d.getHours());
   newDate.setMinutes(time._d.getMinutes());
@@ -64,11 +72,12 @@ export const handleTimeChange = (time, date) => {
 };
 
 //Common Input field for Budget
-export const budgetInput = (label, value, onChange) => (
-  <FormControl sx={textFieldStyle} className="text-field">
+export const budgetInput = (label, value, onChange, disabled=false, inputRef = null) => (
+  <FormControl sx={textFieldStyle} className="text-field" >
     <InputLabel htmlFor="outlined-adornment-amount">{label}</InputLabel>
     <OutlinedInput
       id="outlined-adornment-amount"
+      disabled={disabled}
       startAdornment={
         <InputAdornment position="start">
           <p>&#8377;</p>
@@ -78,13 +87,15 @@ export const budgetInput = (label, value, onChange) => (
       type="text"
       value={!Number.isNaN(value) ? convertToRupeesFormat(value) : 0}
       onChange={onChange}
+      inputRef={inputRef}
     />
   </FormControl>
 );
 
 //Common Input field for Date
 export const DateInput = (value, onChange) => (
-  <DatePicker
+  <LocalizationProvider dateAdapter={AdapterDateFns}>
+  <DatePicker 
     disablePast
     required={false}
     label="Date"
@@ -105,10 +116,12 @@ export const DateInput = (value, onChange) => (
     }}
     onChange={onChange}
   />
+  </LocalizationProvider>
 );
 
 //Common Input field for Time
 export const TimeInput = (value, onChange) => (
+  <LocalizationProvider dateAdapter={AdapterDateFns}>
   <TimePicker
     label="Time"
     value={value}
@@ -121,6 +134,7 @@ export const TimeInput = (value, onChange) => (
       />
     )}
   />
+  </LocalizationProvider>
 );
 
 //General time format

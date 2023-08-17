@@ -11,10 +11,19 @@
 }
 
 .event-details-top-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     position: relative;
     border: 1px solid #E6B17E;
     border-radius: 10px;
     padding: 20px;
+}
+
+.event-basic-details-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .label-value {
@@ -35,6 +44,13 @@
 
 .budgetInput {
     margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap : 20px;
+}
+
+.Pencil-Icon {
+    cursor: pointer!important ;
 }
 
 .subEvents-horizontal {
@@ -85,5 +101,16 @@
 
 .body-item > p {
     color: #E6B17E;
+}
+ 
+.switch-button-edit button {
+    border-color: #E6B17E !important;
+    color: #E6B17E !important;
+    width: 150px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
 }
 

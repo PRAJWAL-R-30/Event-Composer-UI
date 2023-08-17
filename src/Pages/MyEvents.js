@@ -83,15 +83,14 @@ function MyEvents() {
           <CircularProgress />
         </div>
       ) : (
-        <></>
-      )}
+      
 
       <div className="all-events">
         {events.map((item) => (
           <div
             key={item._id}
             className="event-list-item"
-            onClick={() => goToDetails(item.id)}
+            onClick={() => goToDetails(item._id)}
           >
             <div className="item-top-row">
               <p className="event-title">{item.eventName}</p>
@@ -116,7 +115,7 @@ function MyEvents() {
             </div>
           </div>
         ))}
-      </div>
+      </div>)}
     </div>
   );
 }

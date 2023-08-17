@@ -26,6 +26,7 @@
 
 .text-field input {
     color: #E6B17E !important;
+    -webkit-text-fill-color: #E6B17E !important;
 }
 
 .text-field label,
