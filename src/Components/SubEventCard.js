@@ -4,6 +4,7 @@ import {
   AccessTime,
   LocationOn,
   CurrencyRupee,
+
 } from "@mui/icons-material";
 import { getDate, getTime } from "../Utils/utils";
 
@@ -17,11 +18,11 @@ function SubEventCard(props) {
       <div className="card-body">
         <div className="body-item">
           <CalendarMonth className="card-icon" />
-          <p>{getDate(props.subEvent.subEventDate)}</p>
+          <p>{getDate(props.subEvent.subEventDateTime)}</p>
         </div>
         <div className="body-item">
           <AccessTime className="card-icon" />
-          <p>{getTime(props.subEvent.subEventDate)}</p>
+          <p>{getTime(props.subEvent.subEventDateTime)}</p>
         </div>
         <div className="body-item">
           <LocationOn className="card-icon" />
