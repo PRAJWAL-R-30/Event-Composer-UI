@@ -1,0 +1,16 @@
+.Modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.EditSubEvent-Container {
+    border: 1px solid #E6B17E;
+    border-radius: 10px;
+    padding: 30px 30px;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}

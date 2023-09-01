@@ -20,7 +20,6 @@ export const fetchEventDetails = createAsyncThunk(
     const response = await axios.get(baseUrl + `/events/${id}`, {
       headers: { Authorization: `Bearer ${userToken}` },
     });
-    console.log(response.data);
     return response.data;
   }
 );
