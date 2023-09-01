@@ -19,7 +19,7 @@ Dark brown: #C56E33
   /* text-align: center; */ 
   content: "";
   position: absolute;
-  background-image: url('../public/bg/pattern-bg.jpeg');
+  background-image: url('../public/bg/pexels-mikhail-nilov-7676887.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;  
@@ -28,5 +28,5 @@ Dark brown: #C56E33
   bottom: 0;
   right: 0;
   left: 0;
-  opacity: 0.4;
+  opacity: 0.1;
 }

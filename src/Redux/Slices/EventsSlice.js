@@ -19,7 +19,6 @@ export const fetchEvents = createAsyncThunk(
                 Authorization: `Bearer ${userToken}`
             }
         });
-        console.log(response.data);
         return response.data;
     }
 );  
@@ -39,11 +38,29 @@ export const addNewEvent = createAsyncThunk(
 
 export const deleteAll = createAsyncThunk(
     'events/deleteAll',
-    async () => {
-        const response = await axios.delete(baseUrl + '/events');
+    async (_, {getState}) => {
+        const {userToken} = getState().user;
+        const response = await axios.delete(baseUrl + '/events',{
+            headers: {
+                Authorization: `Bearer ${userToken}`
+            }
+        });
         return response.data;
     }
 
+)
+
+export const deleteEvent = createAsyncThunk(
+    'events/deleteEvent',   
+    async (id, {getState}) => {
+        const {userToken} = getState().user;
+        const response = await axios.delete(baseUrl + `/events/${id}`,{
+            headers: {
+                Authorization: `Bearer ${userToken}`
+            }
+        })
+        return response.data;
+    }
 )
 
 const eventsSlice = createSlice({
@@ -87,6 +104,18 @@ const eventsSlice = createSlice({
             state.events = [];
         });
         builder.addCase(deleteAll.rejected, (state, action) => {
+            state.isLoading = false;
+            console.log(action.error);
+        });
+
+        // Delete One event
+        builder.addCase(deleteEvent.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(deleteEvent.fulfilled, (state, action) => {
+            state.isLoading = false;
+        });
+        builder.addCase(deleteEvent.rejected, (state, action) => {
             state.isLoading = false;
             console.log(action.error);
         });

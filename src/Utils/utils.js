@@ -45,10 +45,10 @@ export const textFieldStyle = {
 //Method to Convert Integer to Rupee Format (100000 -> 1,00,000)
 export const convertToRupeesFormat = (amount) => {
   const formatter = new Intl.NumberFormat("en-IN");
-  const rawValue = amount.toString().replace(/[^\d.-]/g, "");
-  if (amount === "") {
+  if (!amount) {
     return 0;
   } else {
+    const rawValue = amount.toString().replace(/[^\d.-]/g, "");
     return formatter.format(parseFloat(rawValue));
   }
 };

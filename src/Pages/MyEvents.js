@@ -4,7 +4,11 @@ import "./css/MyEvents.css";
 import { useSelector, useDispatch } from "react-redux";
 import LoadingButton from "@mui/lab/LoadingButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { deleteAll, fetchEvents } from "../Redux/Slices/EventsSlice";
+import {
+  deleteAll,
+  fetchEvents,
+  deleteEvent,
+} from "../Redux/Slices/EventsSlice";
 import CircularProgress from "@mui/material/CircularProgress";
 
 function MyEvents() {
@@ -51,6 +55,14 @@ function MyEvents() {
     navigate(`/MyEvents/${id}`);
   };
 
+  const onDeleteEvent = (eventId, event) => {
+    if (event) {
+      event.stopPropagation();
+      dispatch(deleteEvent(eventId));
+      dispatch(fetchEvents());
+    }
+  };
+
   return (
     <div className="my-events">
       <div className="myEvent-header">
@@ -83,39 +95,48 @@ function MyEvents() {
           <CircularProgress />
         </div>
       ) : (
-      
+        <div className="all-events">
+          {events.map((item) => (
+            <div
+              key={item._id}
+              className="event-list-item"
+              onClick={() => goToDetails(item._id)}
+            >
+              <div className="item-top-row">
+                <p className="event-title">{item.eventName}</p>
+                <div className="date-time">
+                  {item.isMultiEvent ? (
+                    <p className="event-date">(Multi Event)</p>
+                  ) : (
+                    <>
+                      <p className="event-date">
+                        {getDate(item.eventDateTime)}
+                      </p>
+                      <p className="event-date">
+                        {getTime(item.eventDateTime)}
+                      </p>
+                    </>
+                  )}
+                </div>
 
-      <div className="all-events">
-        {events.map((item) => (
-          <div
-            key={item._id}
-            className="event-list-item"
-            onClick={() => goToDetails(item._id)}
-          >
-            <div className="item-top-row">
-              <p className="event-title">{item.eventName}</p>
-              <div className="date-time">
-                {item.isMultiEvent ? (
-                  <p className="event-date">(Multi Event)</p>
-                ) : (
-                  <>
-                    <p className="event-date">{getDate(item.eventDateTime)}</p>
-                    <p className="event-date">{getTime(item.eventDateTime)}</p>
-                  </>
-                )}
+                <p className="total-budget">
+                  Total Budget: <span>&#8377;</span>
+                  {convertToRupeesFormat(item.totalBudget.toString())}
+                </p>
               </div>
-
-              <p className="total-budget">
-                Total Budget: <span>&#8377;</span>
-                {convertToRupeesFormat(item.totalBudget.toString())}
-              </p>
+              <div className="item-bottom-row">
+                <p className="event-desc">{item.eventDesc}</p>
+                <DeleteIcon
+                  className="delete-event-icon"
+                  onClick={(event) => {
+                    onDeleteEvent(item._id, event);
+                  }}
+                />
+              </div>
             </div>
-            <div className="item-bottom-row">
-              <p className="event-desc">{item.eventDesc}</p>
-            </div>
-          </div>
-        ))}
-      </div>)}
+          ))}
+        </div>
+      )}
     </div>
   );
 }
