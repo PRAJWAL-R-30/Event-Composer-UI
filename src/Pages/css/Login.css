@@ -1,12 +1,11 @@
 .loginPage {
-    margin-top: 100px;
     height: 200%;
-    padding: 0 60px;
     overflow: scroll;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
 .loginPage-title {
@@ -14,11 +13,15 @@
     color: #E6B17E;
     font-size: 32px;
     text-align: center;
+    margin: 0;
 }
 
 .loginPage-box {
+    position:relative;
     border: 1px solid #E6B17E;
-    width: 30%;
+    width: auto;
+    padding: 0 20px;
+    max-width: 650px;
 }
 
 .Register {
@@ -52,4 +55,9 @@
 
 .error-msg {
     color: red;
+}
+
+.register-input-grid {
+    text-align: center !important;
+    width: 300px !important;
 }

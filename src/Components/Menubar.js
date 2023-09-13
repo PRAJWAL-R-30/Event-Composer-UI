@@ -47,12 +47,12 @@ function MenuBar({user}) {
     //   show: true,
     //   navLink: "/Login",
     // },
-    {
-      name: "Login",
-      style: "contained",
-      show: !user,
-      navLink: "/Login",
-    },
+    // {
+    //   name: "Login",
+    //   style: "contained",
+    //   show: !user,
+    //   navLink: "/Login",
+    // },
     {
       name: userInitials,
       style: "avatar",

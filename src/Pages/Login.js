@@ -14,7 +14,7 @@ function Login() {
 
     return (
         <div className="loginPage">
-            <p className="loginPage-title">{isNewUser ? "Register to Incharge Event Composer" : "Login to Incharge Event Composer"}</p>
+            <p className="loginPage-title">{isNewUser ? "Sign Up" : "Log In"}</p>
             <div className="loginPage-box">
                 {
                     isNewUser ? <Register /> : <SignIn />

@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import { textFieldStyle } from "../Utils/utils";
 import LoadingButton from "@mui/lab/LoadingButton";
 import validator from "validator";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { userLogin } from '../Redux/Slices/UserSlice';
 import { useSelector, useDispatch } from "react-redux";
 
@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 function SignIn() {
 
   const navigate = useNavigate();
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [inputValid, setInputValid] = useState({
@@ -84,6 +85,9 @@ function SignIn() {
   const postLogin = async (credentials) => {
     await dispatch(userLogin(credentials)).unwrap();
     console.log('Login complete');
+    if (location.state?.source) {
+      console.log(location.state);
+    }
     navigate('/', {replace: false});
   }
 

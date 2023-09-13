@@ -35,7 +35,7 @@ export const updateSubEvent = createAsyncThunk(
       }
     );
     return response?.data ?? [];
-  }
+  } 
 );
 
 const subEventsSlice = createSlice({
